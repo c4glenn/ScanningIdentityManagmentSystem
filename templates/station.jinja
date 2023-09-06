@@ -1,0 +1,20 @@
+{% extends "base.jinja" %}
+{% block title %}Scanning Station{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="text-center">
+        <h1 class="center"> Check-In </h1>
+        <form class="center" action="/scan">
+            <input id="scan_value" type="text" name="scan" autofocus placeholder="Scan your ID"/><br/>
+            <input type="submit" value="Check In" />
+        </form>
+        {% if user %}
+            Thanks for signing in {{ user.fname }} {{ user.lname }}
+        {% endif %}
+    </div>
+{% endblock %}
